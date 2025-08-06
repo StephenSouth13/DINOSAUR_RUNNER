@@ -1,0 +1,52 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Visual Studio / Rider
+.vs/
+*.csproj
+*.sln
+*.user
+*.unityproj
+*.suo
+*.tmp
+*.userprefs
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Crashlytics / Analytics
+.crashlytics/
+
+# Auto-generated
+Generated*/ 
+ExportedObj/
+sysinfo.txt
+
+# Packages
+Packages/com.unity.*
+*.apk
+*.aab
+
+# Collab
+.collabignore
+.collab/
+
+# JetBrains
+.idea/
+
+# Unity Cache
+UnityCache/
+
+# Builds
+*.apk
+*.aab
+*.xcodeproj
+*.xcworkspace
+*.xcuserstate
