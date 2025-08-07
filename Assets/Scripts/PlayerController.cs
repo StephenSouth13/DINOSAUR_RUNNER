@@ -36,11 +36,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void UpdateAnimation()
@@ -50,4 +51,13 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isJumping", isJumping);
     }
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
+        }
+    }
+
 }

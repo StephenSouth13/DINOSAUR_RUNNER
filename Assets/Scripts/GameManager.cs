@@ -2,19 +2,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int scrore = 0;
-    void Start()
-    {
-        
-    }
+    public int score = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void AddScore(int points)
     {
-        scrore+= points;
-    }    
+        score += points;
+        Debug.Log("Score: " + score);
+    }
 }
