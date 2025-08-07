@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -6,6 +6,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Awake()
     {
+        // Tìm GameManager trong scene
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
@@ -13,11 +14,12 @@ public class PlayerCollision : MonoBehaviour
     {
         Debug.Log("Collided with: " + collision.name);
 
+        // Nếu va chạm với coin
         if (collision.CompareTag("Coin"))
         {
-            gameManager.AddScore(1);
+            gameManager.AddScore(1);                       // Tăng điểm
             Debug.Log("Hit Coin");
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);                 // Xóa coin khỏi scene
         }
     }
 }
