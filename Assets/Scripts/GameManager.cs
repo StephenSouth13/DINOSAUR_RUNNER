@@ -2,7 +2,7 @@
 
 public class GameManager : MonoBehaviour
 {
-    public int score = 0;                                  // Biến lưu điểm số
+    private int score = 0;                                  // Biến lưu điểm số
 
     public void AddScore(int points)
     {

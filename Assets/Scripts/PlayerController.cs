@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         float moveInput = Input.GetAxis("Horizontal");     // Nhận input từ bàn phím (A/D hoặc ←/→)
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y); // Di chuyển ngang
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y); // Di chuyển ngang
 
         // Lật hướng nhân vật theo chiều di chuyển
         if (moveInput > 0)
@@ -44,14 +44,14 @@ public class PlayerController : MonoBehaviour
         // Nếu nhấn nút nhảy và đang đứng trên mặt đất thì nhảy
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             Debug.Log("Jump!");
         }
     }
 
     private void UpdateAnimation()
     {
-        bool isRunning = Mathf.Abs(rb.velocity.x) > 0.1f;  // Kiểm tra có đang chạy không
+        bool isRunning = Mathf.Abs(rb.linearVelocity.x) > 0.1f;  // Kiểm tra có đang chạy không
         bool isJumping = !isGrounded;                      // Kiểm tra có đang nhảy không
 
         animator.SetBool("isRunning", isRunning);          // Gửi trạng thái chạy cho Animator
