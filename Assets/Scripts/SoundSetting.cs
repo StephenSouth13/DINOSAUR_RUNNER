@@ -7,6 +7,8 @@ public class SoundSetting : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer; // Mixer âm thanh để điều chỉnh âm lượng
     [SerializeField] private Slider volumeSlider;    // Slider để điều chỉnh âm lượng
 
+    [SerializeField] private Toggle muteToggle;      // Toggle để bật/tắt âm thanh
+
     private void Start()
     {
         // Đặt giá trị ban đầu cho slider từ mixer

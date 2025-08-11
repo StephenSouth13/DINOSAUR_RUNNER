@@ -3,10 +3,10 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 
 
-public class Toggle : MonoBehaviour
+public class AudioToggle : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer; // Mixer âm thanh để điều chỉnh âm lượng
-    [SerializeField] private Toggle muteToggle;      // Toggle để bật/tắt âm thanh
+    [SerializeField] private UnityEngine.UI.Toggle muteToggle;      // Toggle để bật/tắt âm thanh
 
     private void Start()
     {
