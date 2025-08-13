@@ -2,11 +2,26 @@
 
 public class GameManager : MonoBehaviour
 {
-    private int score = 0;                                  // Biến lưu điểm số
+    public static GameManager Instance;  // Singleton
+
+    private int score = 0;               // Lưu điểm số
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Giữ khi đổi scene
+        }
+        else
+        {
+            Destroy(gameObject); // Xóa bản sao thừa
+        }
+    }
 
     public void AddScore(int points)
     {
-        score += points;                                   // Cộng điểm
-        Debug.Log("Score: " + score);                      // In ra điểm hiện tại
+        score += points;
+        Debug.Log("Score: " + score);
     }
 }
