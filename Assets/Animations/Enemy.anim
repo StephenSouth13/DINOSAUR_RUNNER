@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: Enemy
   serializedVersion: 7
-  m_Legacy: 0
+  m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -17,7 +17,30 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves: []
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 4534810592809177352, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.083333336
+      value: {fileID: 4942287488895418986, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.18333334
+      value: {fileID: 3955944898913636364, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.26666668
+      value: {fileID: -6882059581611173700, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.35
+      value: {fileID: -1727531430047209334, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.43333334
+      value: {fileID: -6164068006029348930, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.53333336
+      value: {fileID: 1922484197113216012, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    - time: 0.6166667
+      value: {fileID: -8128283161498370404, guid: 0d9475112eb938444b27e5ade63e4f27, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -31,7 +54,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.6333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
