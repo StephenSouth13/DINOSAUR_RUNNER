@@ -4,46 +4,64 @@ public class MovingPlatformy : MonoBehaviour
 {
     [Header("Platform Movement")]
     [SerializeField] private float speed = 1.0f;
-
-    [Header("Target Positions")]
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
 
-    private Vector3 targetPosition;
+    private Rigidbody2D rb;
+    private Vector2 targetPosition;
 
     void Start()
     {
-        if (pointA == null || pointB == null)
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null || pointA == null || pointB == null)
         {
-            Debug.LogError("Platform points A and B are not assigned. Please assign them in the Inspector.");
+            Debug.LogError("Missing required components or transforms on MovingPlatformy.");
             enabled = false;
             return;
         }
 
-        // Khởi đầu, nền tảng sẽ di chuyển tới điểm B
+        rb.bodyType = RigidbodyType2D.Kinematic;
         targetPosition = pointB.position;
-        Debug.Log("Platform starting. Current target is Point B.");
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // Di chuyển nền tảng tới vị trí mục tiêu
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPosition);
 
-        // Kiểm tra xem nền tảng đã đến VỊ TRÍ MỤC TIÊU một cách chính xác chưa
-        if (transform.position == targetPosition)
+        if (Vector2.Distance(rb.position, targetPosition) < 0.05f)
         {
-            // Nếu đã đến điểm B, thì chuyển mục tiêu về điểm A
-            if (targetPosition == pointB.position)
+            if (targetPosition == (Vector2)pointB.position)
             {
                 targetPosition = pointA.position;
-                Debug.Log("Reached Point B. Switching target to Point A.");
             }
-            // Nếu đã đến điểm A, thì chuyển mục tiêu về điểm B
             else
             {
                 targetPosition = pointB.position;
-                Debug.Log("Reached Point A. Switching target to Point B.");
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.SetOnPlatform(transform);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.RemoveFromPlatform();
             }
         }
     }
